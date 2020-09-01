@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Flipbook class="flipbook" :pages="pages" ref="flipbook"></Flipbook>
+    <Flipbook class="flipbook" :pages="pages" v-slot="flipbook" ref="flipbook"></Flipbook>
   </div>
 </template>
 
@@ -32,17 +32,26 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  color: #ccc;
+  overflow: hidden;
 }
 .flipbook {
-  width: 90vw;
-  height: 90vh;
+  width: 60vw;
+  height: calc(100vh - 50px - 40px);
 }
 .flipbook .bounding-box {
   box-shadow: 0 0 20px #000;
